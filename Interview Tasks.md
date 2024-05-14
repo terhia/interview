@@ -22,3 +22,22 @@ insert into t_employee VALUES
 
 
 **C#**
+```
+class Program
+{
+    private static string message;
+
+    static void Main()
+    {
+        SaySomething();
+        Console.WriteLine(message); // ?
+    }
+
+    static async Task<string> SaySomething()
+    {
+        await Task.Delay(5);
+        message = "Hello world!";
+        return "Something";
+    }
+}
+```
