@@ -104,7 +104,6 @@ Monitor.PulseAll
 - **ReaderWriterLockSlim** - помогает избегать потенциальных дедлоков. Общая рекомендация - использовать его.
 - **ManualResetEventSlim** - лучшая производительность, когда время ожидания - очень короткое, без межпроцессорного взаимодействия  
 - **SemaphoreSlim** - упрощенный быстрый, когда время ожидания - очень короткое, без межпроцессорного взаимодействия. Это упрощенная альтернатива Semaphore, которую можно использовать для синхронизации в рамках одного процесса. SemaphoreSlim Класс представляет упрощенный, быстрый семафор, который можно использовать для ожидания внутри одного процесса, когда предполагается, что времена ожидания будут очень короткими.
-- **ReaderWriterLockSlim** 
 - **ManualResetEventSlim** - этот класс можно использовать для лучшей производительности, чем ManualResetEvent когда ожидается очень короткое время ожидания и когда событие не пересекает границу процесса.
 
 - One difference is that SemaphoreSlim does not permit named semaphores, which can be system-wide. This would mean that a SemaphoreSlim could not be used for cross-process synchronization.
