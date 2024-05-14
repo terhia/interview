@@ -19,6 +19,20 @@
 - **TCL (Transaction Control Language)** - `COMMIT`, `ROLLBACK`, `SAVEPOINT`
 - **DCL (Data Control Language)** - `GRANT`, `REVOKE`, `DENY`
 --------------------------------------------
+
+**Типы соединения таблиц:**
+
+ - INNER JOIN
+ - LEFT JOIN
+ - RIGHT JOIN
+ - FULL JOIN
+ - CROSS JOIN
+ - SELF JOIN
+    
+![Types-of-Join-inSQL](https://github.com/terhia/interview/assets/7370741/734bf5c0-1a45-4ef2-84aa-c6500e0ea34f)
+
+
+--------------------------------------------
 *Типы констрейнтов:*
 - Check constraint
 - Default constraint
