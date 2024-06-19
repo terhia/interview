@@ -69,6 +69,7 @@ class Program
 }
 ```
 
+```
 private readonly int _intLockObj = 1;
 private readonly string _strLockObj = "1";
 private readonly object _objLockObj = new object();
@@ -78,8 +79,6 @@ lock(...)
 {
 ....
 }
-```
-
 ```
 
 ```
