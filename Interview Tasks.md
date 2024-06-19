@@ -30,7 +30,7 @@ class Program
     static void Main()
     {
         SaySomething();
-        Console.WriteLine(message); // будет выводиться или null или Hello world! так как SaySomething будет выполняться в другом потоке и Console.WriteLine не будет ждать окончания вычисления
+        Console.WriteLine(message); // будет выводиться или null или Hello world! , так как SaySomething будет выполняться в другом потоке и Console.WriteLine не будет ждать окончания вычисления. Если использовать var message = SaySomething(); - то будет аналогичная ситуация
     }
 
     static async Task<string> SaySomething()
