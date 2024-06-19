@@ -30,7 +30,7 @@ class Program
     static void Main()
     {
         SaySomething();
-        Console.WriteLine(message); // ?
+        Console.WriteLine(message); // будет выводиться или null или Hello world! так как SaySomething будет выполняться в другом потоке и Console.WriteLine не будет ждать окончания вычисления
     }
 
     static async Task<string> SaySomething()
@@ -63,8 +63,8 @@ class Program
 
         list.Clear();
 
-        Console.WriteLine(result.Count); // ?
-        Console.WriteLine(result.FirstOrDefault()); // ?
+        Console.WriteLine(result.Count); // 1
+        Console.WriteLine(result.FirstOrDefault()); // 15. Причина: при i=15 изменится Query и изменения применятся при материализации
     }
 }
 ```
@@ -82,6 +82,11 @@ lock(...)
 ```
 
 ```
+class Person
+{
+    public int Age;
+}
+
 var persons = Enumerable.Range(0, 3).Select(itr=> new Person{Age = itr});
 
 foreach(var itr in persons)
@@ -92,6 +97,6 @@ foreach(var itr in persons)
 
 foreach(var itr in persons)
 {
-	Console.WriteLine(itr.Age);
+	Console.WriteLine(itr.Age); //будет 0 1 2. Причина: внутри первого foreach каждый элемент материализуется, значение меняется, но вне первого foreach изменения не сохранятся
 }
 ```
