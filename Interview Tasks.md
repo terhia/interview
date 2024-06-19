@@ -68,3 +68,31 @@ class Program
     }
 }
 ```
+
+private readonly int _intLockObj = 1;
+private readonly string _strLockObj = "1";
+private readonly object _objLockObj = new object();
+
+//какую из вышеперечисленных переменных можно использовать в конструкции lock//
+lock(...)
+{
+....
+}
+```
+
+```
+
+```
+var persons = Enumerable.Range(0, 3).Select(itr=> new Person{Age = itr});
+
+foreach(var itr in persons)
+{
+	itr.Age++;
+}
+
+
+foreach(var itr in persons)
+{
+	Console.WriteLine(itr.Age);
+}
+```
