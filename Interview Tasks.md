@@ -70,14 +70,14 @@ class Program
 ```
 
 ```
-private readonly int _intLockObj = 1;
+private readonly int _intLockObj = 1; 
 private readonly string _strLockObj = "1";
 private readonly object _objLockObj = new object();
 
 //какую из вышеперечисленных переменных можно использовать в конструкции lock//
 lock(...)
 {
-....
+	//нельзя использовать не ссылочные типы в lock, int - нельзя, string, object - можно
 }
 ```
 
