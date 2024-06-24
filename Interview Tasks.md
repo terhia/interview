@@ -100,3 +100,61 @@ foreach(var itr in persons)
 	Console.WriteLine(itr.Age); //будет 0 1 2. Причина: внутри первого foreach каждый элемент материализуется, значение меняется, но вне первого foreach изменения не сохранятся
 }
 ```
+
+```
+public class MyClass
+{
+    public int Num { get; set; }
+}
+public struct MyStruct
+{
+    public int Num { get; set; }
+}
+public class Program
+{
+    static void Main()
+    {
+        var myClassObj = new MyClass(); 
+        var myStructObj = new MyStruct();
+
+        Console.WriteLine(myClassObj.Num);
+        Console.WriteLine(myStructObj.Num);
+
+        MethodA(myClassObj.Num);
+        MethodB(myStructObj);
+
+        Console.WriteLine(myClassObj.Num);
+        Console.WriteLine(myStructObj.Num);
+
+        MethodC(myClassObj);
+
+        Console.WriteLine(myClassObj.Num);
+        Console.WriteLine(myStructObj.Num);
+
+        MethodD(myClassObj);
+
+        Console.WriteLine(myClassObj.Num);
+        Console.WriteLine(myStructObj.Num);
+    }
+    private static void MethodA(int num)
+    {
+        num = num + 1;
+    }
+    private static void MethodB(MyStruct myStruct)
+    {
+        myStruct.Num += 1;
+    }
+    private static void MethodC(MyClass myClass)
+    {
+        myClass.Num += 1;
+    }
+
+    private static void MethodD(MyClass myClass)
+    {
+        myClass = new MyClass
+        {
+            Num = myClass.Num * 2,
+        };
+    }
+}
+```
