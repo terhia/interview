@@ -158,3 +158,23 @@ public class Program
     }
 }
 ```
+
+```
+public class Program
+{
+    static void Main()
+    {
+        var s1 = "Text";
+        var s2 = s1;
+        var s3 = "Text";
+        Console.WriteLine(s1 == s3);
+        s2 += " Changed";
+        ChangeString(s1);
+        Console.WriteLine(s1 == s2);
+    }
+    static void ChangeString(string str)
+    {
+        str += " Changed";
+    }
+}
+```
