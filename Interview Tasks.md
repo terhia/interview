@@ -19,7 +19,33 @@ insert into t_employee VALUES
 -- Список сотрудников, получающих максимальную заработную плату в своем отделе --
 ```
 
+```
+create table Employee
+(
+ID int PRIMARY KEY,
+DEPARTMENT_ID int NOT NULL,
+CHIEF_ID int REFERENCES Employee(ID), 
+NAME VARCHAR(100) NOT NULL,
+SALARY int NOT NULL
+)
 
+
+--department "A"
+insert into Employee values (1, 1, 1, '[A] Boss', 1000); 
+insert into Employee values (2, 1, 1, '[A] Ivan', 500); --department "B"
+insert into Employee values (3, 2, 3, '[B] Boss', 600);
+insert into Employee values (4, 2, 3, '[B] Andrey', 700);
+
+with cte as
+(
+select max(salary) as salary, department_id as department_id
+from employee
+group by department_id
+)
+
+select e.name from employee e
+join cte c on e.salary = c.salary and e.department_id = c.department_id
+```
 
 **C#**
 ```
